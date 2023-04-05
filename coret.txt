@@ -1,0 +1,3 @@
+npx sequelize-cli model:generate --name UserDetail --attributes username:string,bio:text,location:string
+npx sequelize-cli model:generate --name User --attributes firstName:string,lastName:string,email:string,password:string,UserDetailId:integer
+npx sequelize-cli model:generate --name Tweet --attributes tweet:text,UserId:integer
