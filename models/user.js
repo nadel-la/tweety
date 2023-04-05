@@ -11,6 +11,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+<<<<<<< HEAD
+=======
+      User.hasMany(models.Tweet)
+>>>>>>> bd4da65a26512615656ae695cbe27b28d17b7531
+      User.belongsTo(models.UserDetail)
     }
   }
   User.init({
