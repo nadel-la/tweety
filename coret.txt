@@ -1,6 +1,7 @@
 npx sequelize-cli model:generate --name UserDetail --attributes username:string,bio:text,location:string,UserId:integer
 npx sequelize-cli model:generate --name User --attributes firstName:string,lastName:string,email:string,password:string
 npx sequelize-cli model:generate --name Tweet --attributes tweet:text,UserId:integer
+npx sequelize-cli model:generate --name Comment --attributes comments:text,TweetId:integer
 
 npx sequelize db:seed --seed 20230405191147-seedUserDetail.js
 npx sequelize db:seed --seed 20230405190819-seedUsers.js
