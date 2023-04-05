@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "postgres",
-    "password": "nadelcode27",
+    "password": "Novrian13$",
     "database": "tweety_db",
     "host": "localhost",
     "dialect": "postgres"
