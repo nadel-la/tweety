@@ -3,14 +3,12 @@
         "firstName": "udin",
         "lastName": "petot",
         "email": "udinganteng@gmail.com",
-        "password": "udin123",
-        "UserDetailId": 1
+        "password": "udin123"
     },
     {
         "firstName": "mamang",
         "lastName": "japrut",
         "email": "mamangjaprut@gmail.com",
-        "password": "mamangganteng123",
-        "UserDetailId": 2
+        "password": "mamangganteng123"
     }
 ]

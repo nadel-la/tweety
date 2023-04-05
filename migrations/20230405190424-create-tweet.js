@@ -1,8 +1,8 @@
 'use strict';
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  up(queryInterface, Sequelize) {
-    return queryInterface.createTable('Tweets', {
+  async up(queryInterface, Sequelize) {
+    await queryInterface.createTable('Tweets', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -14,12 +14,12 @@ module.exports = {
       },
       UserId: {
         type: Sequelize.INTEGER,
-        references: {
-          model: 'Users',
-          key: 'id'
-        },
-        onUpdate: 'cascade',
-        onDelete: 'cascade'
+      references: {
+        model: 'Users',
+        key: 'id'
+      },
+      onUpdate: 'cascade',
+      onDelete: 'cascade'
       },
       createdAt: {
         allowNull: false,
@@ -31,7 +31,7 @@ module.exports = {
       }
     });
   },
-  down(queryInterface, Sequelize) {
-    return queryInterface.dropTable('Tweets');
+  async down(queryInterface, Sequelize) {
+    await queryInterface.dropTable('Tweets');
   }
 };
