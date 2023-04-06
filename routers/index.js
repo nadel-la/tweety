@@ -1,17 +1,41 @@
-const Controller = require("../controllers/controller");
+const session = require("express-session");
 const router = require('express').Router()
 const UserController = require('../controllers/UserController')
+const TweetController = require('../controllers/tweetController')
 
+
+
+router.use(function (req, res, next) {
+    console.log(req.session);
+    console.log('Time:', Date.now(), '<< <middleware global inii')
+    if (!req.session.userId) {
+        
+    }
+    next()
+})
 router.get('/', UserController.home)
 
 router.get('/register',UserController.getRegister)
 router.post('/register',UserController.postRegister)
 
 router.get('/login',UserController.getLogin)
-router.post('/login',UserController.postLogin)
+router.post('/login', UserController.postLogin)
 
-router.use('/user',require('./user'))
-router.use('/userDetail',require('./userDetail'))
-router.use('/tweets',require('./tweets'))
+router.use(function (req, res, next) {
+    // console.log(req.session);
+    console.log('Time:', Date.now(), '<< <middleware global inii')
+    if (!req.session.userId) {
+        const error = `Please login first`
+        res.redirect(`/login?error=${error}`)
+    }
+    next()
+})
+
+router.get('/tweety/home',TweetController.tweetyHome)
+router.post('/tweety/home',TweetController.postTweety)
+
+// router.use('/userDetail',require('./userDetail'))
+// router.use('/userDetail',require('./userDetail'))
+// router.use('/tweets',require('./tweets'))
 
 module.exports = router

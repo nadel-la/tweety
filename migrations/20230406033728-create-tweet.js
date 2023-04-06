@@ -2,24 +2,19 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   up(queryInterface, Sequelize) {
-    return queryInterface.createTable('Comments', {
+    return queryInterface.createTable('Tweets', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      comments: {
+      tweet: {
         type: Sequelize.TEXT
       },
-      TweetId: {
+      UserId: {
         type: Sequelize.INTEGER,
-        references: {
-          model: 'Tweets',
-          key: 'id'
-        },
-        onUpdate: 'cascade',
-        onDelete: 'cascade'
+        allowNull: false,
       },
       createdAt: {
         allowNull: false,
@@ -31,7 +26,7 @@ module.exports = {
       }
     });
   },
-  async down(queryInterface, Sequelize) {
-    return queryInterface.dropTable('Comments');
+  down(queryInterface, Sequelize) {
+    return queryInterface.dropTable('Tweets');
   }
 };

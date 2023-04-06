@@ -12,23 +12,14 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      User.hasOne(models.UserDetail)
       User.hasMany(models.Tweet)
+      User.hasOne(models.UserDetail)
     }
   }
   User.init({
     firstName: DataTypes.STRING,
     lastName: DataTypes.STRING,
-    email: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      unique: true,
-      validate: {
-        notNull: true,
-        isEmail: true,
-        notEmpty: true
-      }
-    },
+    email: DataTypes.STRING,
     password: DataTypes.STRING
   }, {
     sequelize,
@@ -36,11 +27,10 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   User.beforeCreate((data, options) => {
-    var bcrypt = require('bcryptjs');
     var salt = bcrypt.genSaltSync(10);
     var hash = bcrypt.hashSync(data.password, salt);
-
     data.password = hash
+    
   })
   return User;
 };

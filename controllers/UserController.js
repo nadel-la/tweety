@@ -1,5 +1,6 @@
 const { User } = require('../models')
 const bcrypt = require('bcryptjs')
+const session = require('express-session')
 
 class UserController {
 
@@ -36,7 +37,10 @@ class UserController {
                     const isValidPass = bcrypt.compareSync(password, user.password);
 
                     if (isValidPass) {
-                        return res.redirect('/')
+
+                        req.session.userEmail = user.email
+                        req.session.userId = user.id
+                        return res.redirect(`/tweety/home`)
                     } else {
                         const error = "invalid email/password"
                         return res.redirect(`/login?error=${error}`)
@@ -49,6 +53,10 @@ class UserController {
             .catch((err) => {
                 res.send(err)
             })
+    }
+
+    static landingPage(req, res) {
+        res.render('')
     }
 }
 

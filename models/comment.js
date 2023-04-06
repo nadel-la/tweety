@@ -13,7 +13,6 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       Comment.belongsTo(models.Tweet)
     }
-    
   }
   Comment.init({
     comments: DataTypes.TEXT,
