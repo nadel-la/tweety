@@ -3,6 +3,10 @@ const bcrypt = require('bcryptjs')
 
 class UserController {
 
+    static home(req,res) {
+        res.render('home')
+    }
+        
     static getRegister(req, res) {
         res.render('registerForm')
     }

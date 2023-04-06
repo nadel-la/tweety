@@ -2,9 +2,7 @@ const Controller = require("../controllers/controller");
 const router = require('express').Router()
 const UserController = require('../controllers/UserController')
 
-router.get('/', (req, res) => {
-    res.send('Hi! tweeny!')
-})
+router.get('/', UserController.home)
 
 router.get('/register',UserController.getRegister)
 router.post('/register',UserController.postRegister)
