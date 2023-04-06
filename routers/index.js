@@ -3,7 +3,7 @@ const router = require('express').Router()
 const UserController = require('../controllers/UserController')
 
 router.get('/', (req, res) => {
-    res.send('Hello World')
+    res.send('Hi! tweeny!')
 })
 
 router.get('/register',UserController.getRegister)
