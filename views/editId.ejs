@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body style="background-color:black  ;">
+    <h1 style="text-align: center; margin-top: 80px; color: rgb(255, 202, 43);">Edit Profile Tweenies!</h1>
+    <br>
+
+    
+    <div class="container" style="margin: 0 auto; width: 500px; color: rgb(255, 202, 43); font-size: 18px; font-weight: 600px;">
+        <form method="post" action="/edit/profile/<%=id  %>">
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Username</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="username" value="<%=data.firstName  %>">
+            </div>
+            <br>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Bio</label>
+              <textarea name="bio" id="" cols="30" rows="10"></textarea>
+            </div>
+            <br>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Location</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="location" value="">
+            </div>
+            <br>
+            <button type="submit" class="btn btn-warning">Edit</button>
+          </form>
+    </div>
+    
+    <%- include('_link') %>
+</body>
+</html>

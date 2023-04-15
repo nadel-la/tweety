@@ -13,7 +13,13 @@ module.exports = {
         type: Sequelize.TEXT
       },
       TweetId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Tweets',
+          key: 'id'
+        },
+        onUpdate: 'cascade',
+        onDelete: 'cascade'
       },
       createdAt: {
         allowNull: false,

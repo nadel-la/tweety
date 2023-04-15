@@ -32,7 +32,12 @@ router.use(function (req, res, next) {
 })
 
 router.get('/tweety/home',TweetController.tweetyHome)
-router.post('/tweety/home',TweetController.postTweety)
+router.post('/tweety/home', TweetController.postTweety)
+
+router.get('/edit/profile/:id', TweetController.editProfile)
+router.post('/edit/profile/:id', TweetController.postEditProfile)
+
+router.get('/tweety/home/delete/:id',TweetController.deleteTweety)
 
 // router.use('/userDetail',require('./userDetail'))
 // router.use('/userDetail',require('./userDetail'))
