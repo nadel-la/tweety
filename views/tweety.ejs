@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tweeny</title>
+</head>
+<body>
+    <h1 style="text-align: center;color: rgb(255, 202, 43); margin-top: 30px;"> Hai! Welcome to Tweety</h1>
+    <br>
+    <div class="container">
+        <a href="/edit/profile/<%=UserId %>"><button type="button" class="btn btn-success">Edit Profile</button></a>
+    </div>
+    <br>
+    <div class="container">
+        <form method="post" action="/tweety/home">
+            <div class="form-floating">
+                <textarea class="form-control" placeholder="What's on your mind,Tweeny?" id="floatingTextarea2" style="height: 100px" name="tweet"></textarea>
+                <label for="floatingTextarea2" style="color:rgb(255, 202, 43);">"What's on your mind,Tweeny?</label>
+            </div>
+            <br>
+            <button type="submit" class="btn btn-warning">Tweety!</button>
+        </form>
+    </div>
+    <br>
+    <div class="container" style="text-align: center;">
+
+        <% data.forEach(el => { %>
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="https://seeklogo.com/images/T/Tweety_Pie-logo-FF2FF4EF3E-seeklogo.com.png" class="img-fluid rounded-start" alt="...">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title" style="color:rgb(255, 202, 43)"><%=el.User.firstName  %></h5>
+                      <p class="card-text"><%=el.tweet  %></p>
+                      <p class="card-text"><small class="text-body-secondary" style="color: yellow;font-size: 15px;"><%=getMinutes(el.updatedAt)  %></small></p>
+                     
+                      <a href=""><button type="button" class="btn btn-warning">Add Comments</button></a>
+                      <% if (UserId === el.UserId) { %>
+                        <a href="/tweety/home/delete/<%=el.id%>"><button type="button" class="btn btn-danger">delete</button></a>
+                      <% } %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+        <% }) %>
+    </div>
+    <%- include('_link') %>
+</body>
+</html>

@@ -2,11 +2,13 @@
     {
         "username": "udin ranger",
         "bio": "berjuang sepenuh hati",
-        "location": "jakarta"
+        "location": "jakarta",
+        "UserId": 1
     },
     {
         "username": "mamang berkah",
         "bio": "selalu tersakiti",
-        "location": "bekasi"
+        "location": "bekasi",
+        "UserId": 2
     }
 ]
